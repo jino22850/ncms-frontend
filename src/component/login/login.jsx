@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../../api/API";
 
 const Login = () => {
   const navigate = useNavigate(); 
@@ -27,7 +28,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8070/slrc/auth/login",
+        `${BASE_URL}/slrc/auth/login`,
         formData
       );
 

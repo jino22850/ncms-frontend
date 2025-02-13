@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MdGridView, MdDelete, MdEdit } from "react-icons/md";
+import { BASE_URL } from "../../api/API";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const Signup = () => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const response = await axios.get("http://localhost:8070/slrc/auth/admins");
+        const response = await axios.get(`${BASE_URL}/slrc/auth/admins`);
         setAdmins(response.data);
       } catch (error) {
         console.error("Error fetching admins:", error.response?.data?.message || error.message);
@@ -42,7 +43,7 @@ const Signup = () => {
 
     try {
       if (editingAdmin) {
-        const response = await axios.put(`http://localhost:8070/slrc/auth/admin/edit/${editingAdmin._id}`, {
+        const response = await axios.put(`${BASE_URL}/slrc/auth/admin/edit/${editingAdmin._id}`, {
           username: formData.name,
           email: formData.email,
           password: formData.password,
@@ -54,7 +55,7 @@ const Signup = () => {
           setEditingAdmin(null); 
         }
       } else {
-        const response = await axios.post("http://localhost:8070/slrc/auth/register", {
+        const response = await axios.post(`${BASE_URL}/slrc/auth/register`, {
           username: formData.name,
           email: formData.email,
           password: formData.password,
@@ -90,7 +91,7 @@ const Signup = () => {
 
   const handleDelete = async (adminId) => {
     try {
-      const response = await axios.delete(`http://localhost:8070/slrc/auth/admin/delete/${adminId}`);
+      const response = await axios.delete(`${BASE_URL}/slrc/auth/admin/delete/${adminId}`);
       if (response.status === 200) {
         alert("Admin deleted successfully!");
         setAdmins(admins.filter(admin => admin._id !== adminId)); 
