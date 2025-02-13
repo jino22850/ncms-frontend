@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'ncms-backend-production.up.railway.app/slrc/cor';
+const API_BASE_URL = 'https://ncms-backend-production.up.railway.app/slrc/cor';
 
 /**
  * 
