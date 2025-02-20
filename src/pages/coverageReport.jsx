@@ -293,15 +293,15 @@ const handleSelect = (correspondent) => {
         <table className="table-auto w-full border-collapse border border-gray-200">
           <thead className="border-gray-100 border-2">
             <tr className="bg-gray-200">
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">#</th>
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Coverage Number</th>
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Correspondent Name</th>
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Correspondent Id</th>
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Receive Date</th>
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Telecast Date</th>
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Category</th>
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Status Type</th>
-              <th className="text-left p-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Channel</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">#</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Coverage Number</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent Name</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent Id</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Receive Date</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Telecast Date</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Category</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Status Type</th>
+              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Channel</th>
        
             </tr>
           </thead>
@@ -309,21 +309,21 @@ const handleSelect = (correspondent) => {
             {currentCoverages.length > 0 ? (
               currentCoverages.map((coverage, index) => (
                 <tr key={coverage._id}>
-                  <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                  <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.coverageNumber}</td>
-                  <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.correspondent?.name || 'N/A'}</td>
-                  <td className="px-3 py-1  text-gray-800 text-xs border-gray-100 border-2">{coverage.correspondent?.CorId || 'N/A'}</td>
-                  <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.receivedDate || 'N/A'}</td>
-                  <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.telecastDate || 'N/A'}</td>
-                  <td className="p-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.Category?.name || 'N/A'}</td>
-                  <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.telecastType || 'N/A'}</td>
-                  <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.channel}</td>
+                  <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{(currentPage - 1) * itemsPerPage + index + 1}</td>
+                  <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.coverageNumber}</td>
+                  <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.correspondent?.name || 'N/A'}</td>
+                  <td className="px-3 py-1  text-gray-800 text-sm border-gray-100 border-2">{coverage.correspondent?.CorId || 'N/A'}</td>
+                  <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.receivedDate || 'N/A'}</td>
+                  <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.telecastDate || 'N/A'}</td>
+                  <td className="p-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.Category?.name || 'N/A'}</td>
+                  <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.telecastType || 'N/A'}</td>
+                  <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.channel}</td>
                   
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="12" className="border px-4 py-2 text-center">
+                <td colSpan="12" className="border px-4 py-2 text-center text-sm">
                   No coverage data available
                 </td>
               </tr>

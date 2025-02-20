@@ -146,37 +146,43 @@ const DistrictCoverage = () => {
                 <table className="w-full table-auto border-collapse border border-gray-300">
                     <thead>
                         <tr className="bg-gray-100">
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">#</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">Coverage Number</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">Correspondent Name</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">Correspondent Id</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">District</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">Receive Date</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">Telecast Date</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">Category</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">Status Type</th>
-                            <th className="text-left p-4 text-gray-700 font-medium text-sm border-gray-100 border-2">Channel</th>
+                            <th className="text-left px-4 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">#</th>
+                            <th className="text-left px-3 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">Coverage Number</th>
+                            <th className="text-left px-3 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">Correspondent Name</th>
+                            <th className="text-left px-3 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">Correspondent Id</th>
+                            <th className="text-left px-3 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">District</th>
+                            <th className="text-left px-3 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">Receive Date</th>
+                            <th className="text-left px-3 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">Telecast Date</th>
+                            <th className="text-left px-3 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">Category</th>
+                            <th className="text-left px-3 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">Status Type</th>
+                            <th className="text-left px-4 py-3 bg-gray-200 text-gray-500 font-medium text-sm border-white border-2">Channel</th>
                         </tr>
                     </thead>
                     <tbody>
                         {coverages.length > 0 ? (
                             coverages.map((coverage, index) => (
                                 <tr key={coverage._id} className="hover:bg-gray-50">
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{index + 1}</td>
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.coverageNumber}</td>
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.correspondent?.name || 'N/A'}</td>
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.correspondent?.CorId || 'N/A'}</td>
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.correspondent?.district}</td>
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.receivedDate || 'N/A'}</td>
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.telecastDate || 'N/A'}</td>
-                                    <td className="p-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.Category?.name || 'N/A'}</td>
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.telecastType || 'N/A'}</td>
-                                    <td className="px-3 py-1 text-gray-800 text-xs border-gray-100 border-2">{coverage.channel}</td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">{index + 1}</td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">{coverage.coverageNumber}</td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">{coverage.correspondent?.name || 'N/A'}</td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">{coverage.correspondent?.CorId || 'N/A'}</td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">{coverage.correspondent?.district}</td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">
+                                        {coverage.receivedDate ? new Date(coverage.receivedDate).toISOString().split("T")[0] : "N/A"}
+                                    </td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">
+                                        {coverage.telecastDate
+                                        ? new Date(coverage.telecastDate).toISOString().split("T")[0] 
+                                        : "N/A"}
+                                    </td>
+                                    <td className="p-3 py-2 text-gray-800 text-sm border-white border-2">{coverage.Category?.name || 'N/A'}</td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">{coverage.telecastType || 'N/A'}</td>
+                                    <td className="px-3 py-2 text-gray-800 text-sm border-white border-2">{coverage.channel}</td>
                                 </tr>
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="10" className="px-4 py-2 border border-gray-300 text-center">No coverages found for this district and date range.</td>
+                                <td colSpan="10" className="px-4 py-2 border border-gray-300 text-center text-sm">No coverages found for this district and date range.</td>
                             </tr>
                         )}
                     </tbody>

@@ -262,15 +262,15 @@ const handlePageChange = (page) => {
         <table className="table-auto w-full border-collapse border border-gray-200">
           <thead className="border-gray-100 border-2">
             <tr className="bg-gray-200">
-              <th className="text-left px-4 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">#</th>
-              <th className="text-left px-4 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Correspondent Code</th>
-              <th className="text-left px-4 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Correspondent Name</th>
-              <th className="text-left px-4 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Correspondent District</th>
-              <th className="text-left px-4 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Correspondent NIC</th>
-              <th className="text-left px-4 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Month</th>
-              <th className="text-left px-3 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Year</th>
-              <th className="text-left px-3 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Total Amount</th>
-              <th className="text-left px-3 py-2 text-gray-700 font-medium text-sm border-gray-100 border-2">Actions</th>
+              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">#</th>
+              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent Code</th>
+              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent Name</th>
+              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent District</th>
+              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent NIC</th>
+              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Month</th>
+              <th className="text-left px-3 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Year</th>
+              <th className="text-left px-3 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Total Amount</th>
+              <th className="text-left px-3 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -279,28 +279,30 @@ const handlePageChange = (page) => {
                 <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">
         {(currentPage - 1) * itemsPerPage + index + 1}
       </td>
-                <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">{payment.correspondentCorId}</td>
-                <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">{payment.correspondentName}</td>
-                <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">{payment.correspondentDistrict}</td>
-                <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">{payment.correspondentNIC}</td>
-                <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">{payment.month}</td>
-                <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">{payment.year}</td>
-                <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">Rs. {payment.totalAmount}.00</td>
-                <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">
-                  <button
-                    className="bg-blue-500 text-white px-1 py-1 rounded hover:bg-blue-600 mr-2"
-                    onClick={() => handleView(payment)}
-                  >
-                    <FaEye /> 
-                  </button>
-                  <button
-                    className="bg-green-500 text-white px-1 py-1 rounded hover:bg-green-600 mr-2"
-                    onClick={() => handlePrint(payment)}
-                  >
-                    <FaPrint /> 
-                  </button>
-                 
-                </td>
+                <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">{payment.correspondentCorId}</td>
+                <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">{payment.correspondentName}</td>
+                <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">{payment.correspondentDistrict}</td>
+                <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">{payment.correspondentNIC}</td>
+                <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">{payment.month}</td>
+                <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">{payment.year}</td>
+                <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">Rs. {payment.totalAmount}.00</td>
+                <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">
+  <div className="inline-flex">
+    <button
+      className="bg-white text-blue-500 px-1 py-1 text-md border border-gray-300 rounded p-1 hover:bg-blue-600 mr-2"
+      onClick={() => handleView(payment)}
+    >
+      <FaEye /> 
+    </button>
+    <button
+      className="bg-white text-green-500 px-1 py-1 text-md border border-gray-300 rounded p-1 hover:bg-green-600 mr-2"
+      onClick={() => handlePrint(payment)}
+    >
+      <FaPrint /> 
+    </button>
+  </div>
+</td>
+
               </tr>
             ))}
           </tbody>

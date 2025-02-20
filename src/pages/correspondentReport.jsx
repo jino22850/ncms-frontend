@@ -157,31 +157,31 @@ const CorrespondentReport = () => {
   {Array.isArray(currentCorrespondents) && currentCorrespondents.length > 0 ? (
     currentCorrespondents.map((correspondent,index) => (
       <tr key={correspondent._id}>
-        <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">
+        <td className="px-4 py-2 text-gray-800 text-sm border-white border-2">
         {(currentPage - 1) * itemsPerPage + index + 1}
       </td>
-        <td className="px-4 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-gray-100 ">
+        <td className="px-4 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-white ">
           {correspondent.CorId}
         </td>
-        <td className="px-4 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-gray-100 ">
+        <td className="px-4 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-white ">
           {correspondent.name}
         </td>
-        <td className="px-4 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-gray-100 ">
+        <td className="px-4 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-white ">
           {correspondent.district}
         </td>
-        <td className="px-6 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-gray-100  ">
+        <td className="px-6 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-white  ">
           {correspondent.NIC}
         </td>
         <td
-          className="px-6 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-gray-100 "
+          className="px-6 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-white "
           style={{ maxWidth: "200px" }}
         >
           {correspondent.address}
         </td>
-        <td className="px-6 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-gray-100 ">
+        <td className="px-6 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-white ">
           {correspondent.email}
         </td>
-        <td className="px-6 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-gray-100 ">
+        <td className="px-6 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap border-2 border-white ">
           {correspondent.mobileNumber}
         </td>
       </tr>

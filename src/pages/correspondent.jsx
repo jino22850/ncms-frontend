@@ -195,15 +195,15 @@ const Correspondent = () => {
         <table className="w-full border-collapse border divide-y">
           <thead className="border-gray-200 border-2">
             <tr className="text-left text-xs font-semibold">
-              <th className="px-3 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name with initials</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">District</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-ellipsis">Address</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mobile Number</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NIC</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-3 py-6 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">#</th>
+              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">ID</th>
+              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Name with initials</th>
+              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">District</th>
+              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Email</th>
+              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider text-ellipsis">Address</th>
+              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Mobile Number</th>
+              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">NIC</th>
+              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200 text-sm">
@@ -212,21 +212,28 @@ const Correspondent = () => {
                 <td className="px-4 py-2">
                   {currentResults.length - index + (currentPage - 1) * resultsPerPage}
                 </td>
-                <td className="px-3 py-2 text-sm border-gray-100 border-2">{correspondent.CorId}</td>
-                <td className="px-4 py-2 text-sm text-ellipsis overflow-hidden whitespace-nowrap" style={{ maxWidth: '150px' }}>
+                <td className="px-3 py-2 text-md border-gray-100 border-2">{correspondent.CorId}</td>
+                <td className="px-4 py-2 text-md text-ellipsis overflow-hidden whitespace-nowrap" style={{ maxWidth: '150px' }}>
                   {correspondent.name}
                 </td>
-                <td className="px-4 py-2 text-sm">{correspondent.district}</td>
-                <td className="px-4 py-2 text-sm">{correspondent.email}</td>
-                <td className="px-4 py-2 text-sm text-ellipsis overflow-hidden" style={{ maxWidth: '150px' }}>
+                <td className="px-4 py-2 text-md">{correspondent.district}</td>
+                <td className="px-4 py-2 text-md">{correspondent.email}</td>
+                <td className="px-4 py-2 text-md text-ellipsis overflow-hidden" style={{ maxWidth: '150px' }}>
                   {correspondent.address}
                 </td>
-                <td className="px-4 py-2 text-sm">{correspondent.mobileNumber}</td>
-                <td className="px-4 py-2 text-sm">{correspondent.NIC}</td>
-                <td className="px-4 py-2 text-sm flex justify-between items-center">
-                  <MdModeEdit className="cursor-pointer text-blue-600 w-1 h-1" onClick={() => handleEdit(correspondent)} />
-                  <MdDelete className="cursor-pointer text-red-600 w-1 h-1" onClick={() => handleDelete(correspondent.CorId)} />
-                </td>
+                <td className="px-4 py-2 text-md">{correspondent.mobileNumber}</td>
+                <td className="px-4 py-2 text-md">{correspondent.NIC}</td>
+                <td className="px-6 py-2 text-md flex justify-between items-center space-x-2">
+  <MdModeEdit
+    className="cursor-pointer text-blue-600 text-2xl border border-gray-300 rounded p-1 hover:bg-blue-100"
+    onClick={() => handleEdit(correspondent)}
+  />
+  <MdDelete
+    className="cursor-pointer text-red-600 text-2xl border border-gray-300 rounded p-1 hover:bg-red-100"
+    onClick={() => handleDelete(correspondent.CorId)}
+  />
+</td>
+
               </tr>
             ))}
           </tbody>

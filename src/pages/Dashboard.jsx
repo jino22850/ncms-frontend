@@ -72,10 +72,7 @@ const Dashboard = () => {
             
 
                 </div>
-                {/* Footer */}
-      <footer className="bg-white p-4 text-center text-black text-sm">
-        Copyright SLRC made by Department of ICT
-      </footer>
+              
                 </div>
 
   )

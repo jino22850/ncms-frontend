@@ -1,6 +1,7 @@
 import React, { useState }  from 'react';
 import Header from '../Header/Header';
 import Sidebar from '../sidebar/Sidebar';
+import Footer from '../footer/footer';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
@@ -26,6 +27,12 @@ const Layout = () => {
           </div>
         </div>
       </div>
+
+
+      {/* Footer */}
+  <Footer/>
+
+
     </div>
   );
 };
