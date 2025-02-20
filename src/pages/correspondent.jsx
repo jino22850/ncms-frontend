@@ -149,7 +149,7 @@ const Correspondent = () => {
   };
 
   return (
-    <div className="bg-white grid grid-cols-[5fr] min-w-screen-sm min-w-screen-lg">
+    <div className="bg-white grid grid-cols-[5fr] w-full min-w-screen-lg">
       <div className="flex items-center space-x-4 mb-6 max-w-screen">
         <FaUser className="text-4xl text-black" />
         <h2 className="text-3xl font-semibold text-black">Correspondent</h2>
@@ -224,8 +224,8 @@ const Correspondent = () => {
                 <td className="px-4 py-2 text-sm">{correspondent.mobileNumber}</td>
                 <td className="px-4 py-2 text-sm">{correspondent.NIC}</td>
                 <td className="px-4 py-2 text-sm flex justify-between items-center">
-                  <MdModeEdit className="cursor-pointer text-blue-600" onClick={() => handleEdit(correspondent)} />
-                  <MdDelete className="cursor-pointer text-red-600" onClick={() => handleDelete(correspondent.CorId)} />
+                  <MdModeEdit className="cursor-pointer text-blue-600 w-1 h-1" onClick={() => handleEdit(correspondent)} />
+                  <MdDelete className="cursor-pointer text-red-600 w-1 h-1" onClick={() => handleDelete(correspondent.CorId)} />
                 </td>
               </tr>
             ))}

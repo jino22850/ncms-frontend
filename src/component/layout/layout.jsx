@@ -10,18 +10,18 @@ const Layout = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
   return (
-    <div className="h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col w-full">
       <Header toggleSidebar={toggleSidebar}/>
 
       {/* Sidebar and Content */}
       <div className="flex flex-1 pt-16">
-        <div className="w-64 fixed top-16 left-0 h-[calc(100vh-4rem)]">
+        <div className="w-64 fixed top-16 left-0 min-h-[calc(100vh-4rem)]">
           <Sidebar isSidebarOpen={isSidebarOpen} />
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-1 ml-64 p-4">
-          <div className="h-full w-auto">
+        <div className="flex-1 ml-56 p-4 pt-2 ">
+          <div className="flex-1 w-full pl-4 min-h-[calc(100vh-4rem)] p-4 bg-gray-100">
             <Outlet />
           </div>
         </div>
