@@ -129,14 +129,14 @@ const CorrespondentReport = () => {
         <table className="relative">
           <thead>
             <tr>
-            <th className="px-4 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">#</th>
-              <th className="px-4 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+            <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">#</th>
+              <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
                 ID
               </th>
-              <th className="px-4 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+              <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
                 Name
               </th>
-              <th className="px-4 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+              <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
                 District
               </th>
               <th className="px-6 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
