@@ -126,7 +126,7 @@ const CorrespondentReport = () => {
 
       
       <div id="printable-table">
-        <table className="relative">
+        <table className="table-auto w-full border-collapse border border-gray-200">
           <thead>
             <tr>
             <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">#</th>
