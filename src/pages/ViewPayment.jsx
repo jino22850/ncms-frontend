@@ -182,7 +182,7 @@ const handlePageChange = (page) => {
       <h1 className="text-2xl font-bold mb-4">Payments</h1>
       </div>
 
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
 
       <div className="flex items-center justify-between p-4 bg-gray-100 border border-gray-200 rounded-md shadow-sm">
       <div className="mb-1">
@@ -239,13 +239,13 @@ const handlePageChange = (page) => {
 
   {/* Buttons Section */}
   <div className="flex space-x-2">
-    <button className="px-4 py-2 text-sm font-medium text-white bg-green-700 rounded-md hover:bg-green-900 focus:outline-none focus:ring focus:ring-green-300">
+    {/* <button className="px-4 py-2 text-sm font-medium text-white bg-green-700 rounded-md hover:bg-green-900 focus:outline-none focus:ring focus:ring-green-300">
       Excel
-    </button>
-    <button className="px-5 py-2 text-sm font-medium text-white bg-red-700 rounded-md hover:bg-red-900 focus:outline-none focus:ring focus:ring-blue-300">
+    </button> */}
+    {/* <button className="px-5 py-2 text-sm font-medium text-white bg-red-700 rounded-md hover:bg-red-900 focus:outline-none focus:ring focus:ring-blue-300">
       Pdf
-    </button>
-    <button className="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-md hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-300">
+    </button> */}
+    <button className="px-4 py-2 text-sm font-medium text-green-700 border-2 border-green-500 rounded-lg bg-white transition duration-300 hover:bg-green-900 hover:text-white focus:outline-none focus:ring focus:ring-green-300">
       Print
     </button>
   </div>
@@ -259,23 +259,23 @@ const handlePageChange = (page) => {
 
   </div>
       {approvedPayments.length > 0 ? (
-        <table className="table-auto w-full border-collapse border border-gray-200">
+        <table className="table-auto w-full border-collapse border border-gray-200 bg-white">
           <thead className="border-gray-100 border-2">
             <tr className="bg-gray-200">
-              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">#</th>
-              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent Code</th>
-              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent Name</th>
-              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent District</th>
-              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent NIC</th>
-              <th className="text-left px-4 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Month</th>
-              <th className="text-left px-3 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Year</th>
-              <th className="text-left px-3 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Total Amount</th>
-              <th className="text-left px-3 py-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Actions</th>
+              <th className="text-left px-4 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">#</th>
+              <th className="text-left px-4 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">Correspondent Code</th>
+              <th className="text-left px-4 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">Correspondent Name</th>
+              <th className="text-left px-4 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">Correspondent District</th>
+              <th className="text-left px-4 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">Correspondent NIC</th>
+              <th className="text-left px-4 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">Month</th>
+              <th className="text-left px-3 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">Year</th>
+              <th className="text-left px-3 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">Total Amount</th>
+              <th className="text-left px-3 py-4 bg-gray-900 text-gray-100 font-medium text-sm border-gray-100 border">Actions</th>
             </tr>
           </thead>
           <tbody>
             {currentApprovedPayments.map((payment, index) => (
-              <tr key={payment._id}>
+              <tr key={payment._id} className=" even:bg-gray-200 odd:bg-white hover:bg-gray-300">
                 <td className="px-4 py-2 text-gray-800 text-xs border-gray-100 border-2">
         {(currentPage - 1) * itemsPerPage + index + 1}
       </td>
@@ -289,13 +289,13 @@ const handlePageChange = (page) => {
                 <td className="px-4 py-2 text-gray-800 text-sm border-gray-100 border-2">
   <div className="inline-flex">
     <button
-      className="bg-white text-blue-500 px-1 py-1 text-md border border-gray-300 rounded p-1 hover:bg-blue-600 mr-2"
+      className="bg-white text-blue-500 px-1 py-1 text-md border border-blue-500 rounded p-1 hover:bg-blue-600 hover:text-white mr-2"
       onClick={() => handleView(payment)}
     >
       <FaEye /> 
     </button>
     <button
-      className="bg-white text-green-500 px-1 py-1 text-md border border-gray-300 rounded p-1 hover:bg-green-600 mr-2"
+      className="bg-white text-green-500 px-1 py-1 text-md border border-green-500 rounded p-1 hover:bg-green-600 hover:text-white mr-2"
       onClick={() => handlePrint(payment)}
     >
       <FaPrint /> 
@@ -316,15 +316,22 @@ const handlePageChange = (page) => {
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-500 text-white rounded-md mr-2 disabled:opacity-50 text-sm"
+         className="px-4 py-2 bg-gray-100 text-black ml-2 disabled:opacity-50 text-sm"
         >
           Previous
         </button>
-        <span className="px-4 py-2 text-xs font-semibold">{currentPage} of {totalPages}</span>
+        <span>
+        <button className="bg-gray-500 px-4 py-2 border-white border">{currentPage}
+        </button>
+            </span>
+            <span>
+            <button className="bg-gray-200 px-4 py-2 border-white border"> {totalPages}
+              </button>
+            </span>
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-500 text-white rounded-md ml-2 disabled:opacity-50 text-sm"
+          className="px-4 py-2 bg-gray-100 text-black disabled:opacity-50 text-sm"
         >
           Next
         </button>

@@ -149,13 +149,13 @@ const Correspondent = () => {
   };
 
   return (
-    <div className="bg-white grid grid-cols-[5fr] w-full min-w-screen-lg">
+    <div className="bg-gradient-to-r from-gray-100 to-gray-500 grid grid-cols-[5fr] w-full min-w-screen-lg">
       <div className="flex items-center space-x-4 mb-6 max-w-screen">
         <FaUser className="text-4xl text-black" />
         <h2 className="text-3xl font-semibold text-black">Correspondent</h2>
       </div>
 
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
 
       <div className="bg-gray-100 px-10 py-4 rounded-lg shadow-md">
         <div className="flex items-center justify-between p-4 bg-gray-100 border border-gray-200 rounded-md shadow-sm">
@@ -185,30 +185,31 @@ const Correspondent = () => {
 
         <div className="flex justify-end items-center mb-4">
         <button
-          onClick={() => setShowModal(true)}
-          className="mb-1 mt-3 bg-red-900 text-white px-4 py-2 rounded hover:bg-red-700 focus:outline-none text-sm"
-        >
-          Add New Correspondent
-        </button>
+  onClick={() => setShowModal(true)}
+  className="mt-3 mb-1 px-4 py-2 text-sm font-medium text-red-900 border border-red-900 rounded-lg bg-white transition duration-300 hover:bg-red-900 hover:text-white focus:outline-none focus:ring focus:ring-red-300"
+>
+  Add New Correspondent
+</button>
+
         </div>
 
         <table className="w-full border-collapse border divide-y">
-          <thead className="border-gray-200 border-2">
-            <tr className="text-left text-xs font-semibold">
-              <th className="px-3 py-6 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">#</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">ID</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Name with initials</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">District</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Email</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider text-ellipsis">Address</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Mobile Number</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">NIC</th>
-              <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+          <thead className="border-gray-200 border-2 ">
+            <tr className="text-left text-sm font-semibold">
+              <th className="px-4 py-3 bg-gray-900 text-left text-md font-medium text-gray-300 uppercase tracking-wider border border-gray-100">#</th>
+              <th className="px-4 py-2 bg-gray-900 text-left text-md font-medium text-gray-300 uppercase tracking-wider border border-gray-100">ID</th>
+              <th className="px-4 py-2 bg-gray-900 text-left text-md font-medium text-gray-300 uppercase tracking-wider border border-gray-100">Name with initials</th>
+              <th className="px-4 py-2 bg-gray-900 text-left text-md font-medium text-gray-300 uppercase tracking-wider border border-gray-100">District</th>
+              <th className="px-4 py-2 bg-gray-900 text-left text-md font-medium text-gray-300 uppercase tracking-wider border border-gray-100">Email</th>
+              {/* <th className="px-3 py-2 bg-gray-200 text-left text-md font-medium text-gray-500 uppercase tracking-wider text-ellipsis">Address</th> */}
+              <th className="px-4 py-2 bg-gray-900 text-left text-md font-medium text-gray-300 uppercase tracking-wider border border-gray-100">Mobile Number</th>
+              <th className="px-4 py-2 bg-gray-900 text-left text-md font-medium text-gray-300 uppercase tracking-wider border border-gray-100">NIC</th>
+              <th className="px-4 py-2 bg-gray-900 text-left text-md font-medium text-gray-300 uppercase tracking-wider border border-gray-100">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200 text-sm">
             {currentResults.map((correspondent, index) => (
-              <tr key={correspondent.CorId} className="hover:bg-gray-100">
+              <tr key={correspondent.CorId}  className=" even:bg-gray-200 odd:bg-white hover:bg-gray-300">
                 <td className="px-4 py-2">
                   {currentResults.length - index + (currentPage - 1) * resultsPerPage}
                 </td>
@@ -218,18 +219,18 @@ const Correspondent = () => {
                 </td>
                 <td className="px-4 py-2 text-md">{correspondent.district}</td>
                 <td className="px-4 py-2 text-md">{correspondent.email}</td>
-                <td className="px-4 py-2 text-md text-ellipsis overflow-hidden" style={{ maxWidth: '150px' }}>
+                {/* <td className="px-4 py-2 text-md text-ellipsis overflow-hidden" style={{ maxWidth: '150px' }}>
                   {correspondent.address}
-                </td>
+                </td> */}
                 <td className="px-4 py-2 text-md">{correspondent.mobileNumber}</td>
                 <td className="px-4 py-2 text-md">{correspondent.NIC}</td>
                 <td className="px-6 py-2 text-md flex justify-between items-center space-x-2">
   <MdModeEdit
-    className="cursor-pointer text-blue-600 text-2xl border border-gray-300 rounded p-1 hover:bg-blue-100"
+    className="cursor-pointer text-blue-600 text-2xl border border-blue-400 rounded p-1 hover:bg-blue-100"
     onClick={() => handleEdit(correspondent)}
   />
   <MdDelete
-    className="cursor-pointer text-red-600 text-2xl border border-gray-300 rounded p-1 hover:bg-red-100"
+    className="cursor-pointer text-red-600 text-2xl border border-red-400 rounded p-1 hover:bg-red-100"
     onClick={() => handleDelete(correspondent.CorId)}
   />
 </td>
@@ -263,10 +264,13 @@ const Correspondent = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-8 rounded-lg shadow-xl w-1/2 mt-10 ">
             <h2 className="text-xl font-semibold mb-6">{editing ? 'Edit Correspondent' : 'Add New Correspondent'}</h2>
+
+            <div className="border-b-4 border-red-900 mb-6"></div>
+
             <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4 w-full">
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Name with Initials
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium ">
+                  Calling Name
                 </label>
                 <input
                   type="text"
@@ -277,9 +281,9 @@ const Correspondent = () => {
                   className="mt-2 px-4 py-2 border border-gray-300 rounded-md w-full"
                 />
               </div>
-              <div className="mb-4">
-                <label htmlFor="initials" className="block text-sm font-medium text-gray-700">
-                  Initials
+              <div>
+                <label htmlFor="initials" className="block text-sm font-medium ">
+                  Name with Initials
                 </label>
                 <input
                   type="text"
@@ -346,7 +350,7 @@ const Correspondent = () => {
             
 
             <div>
-              <label className="block text-xs font-medium">Email :</label>
+              <label className="block text-sm font-medium">Email :</label>
               <input
                 type="email"
                 name="email"
@@ -358,7 +362,7 @@ const Correspondent = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-medium">NIC :</label>
+              <label className="block text-sm font-medium">NIC Number :</label>
               <input
                 type="text"
                 name="NIC"
@@ -368,8 +372,8 @@ const Correspondent = () => {
               />
             </div>
 
-            <div className="md:col-span-2">
-              <label className="block text-xs font-medium">Mobile Number :</label>
+            <div>
+              <label className="block text-sm font-medium">Mobile Number :</label>
               <input
                 type="text"
                 name="mobileNumber"
@@ -380,37 +384,38 @@ const Correspondent = () => {
               />
             </div>
 
-            <div className="md:col-span-2">
-              <label className="block text-xs font-medium">Address :</label>
+            <div>
+              <label className="block text-sm font-medium">Address :</label>
               <input
                 type="text"
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
                 required
-                className="w-full h-20 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-sm"
+                className="w-full h-10 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-sm"
               />
             </div>
             
 
-         
+         <div></div>
 
-          <div className="flex justify-right gap-12 w-96">
-                <button
-                  type="button"
-                  className="px-4 py-2 text-sm text-gray-700 bg-gray-200 rounded-md"
-                  onClick={() => setShowModal(false)}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="w-1/2 px-6 py-2 text-sm text-white bg-blue-600 rounded-md"
-                >
-                  {editing ? 'Save Changes' : 'Add Correspondent'}
-                </button>
-              </div>
-              
+            <div className="flex justify-start gap-16 w-full">
+  <button
+    type="button"
+    onClick={() => setShowModal(false)}
+    className="mt-3 mb-1 px-4 py-2 text-sm font-medium text-red-700 border border-red-300 rounded-lg bg-white transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none focus:ring focus:ring-red-300"
+  >
+    Cancel
+  </button>
+
+  <button
+    type="submit"
+    className="mt-3 mb-1 px-4 py-2 text-sm font-medium text-blue-900 border border-blue-900 rounded-lg bg-white transition duration-300 hover:bg-blue-900 hover:text-white focus:outline-none focus:ring focus:ring-blue-300"
+  >
+    {editing ? 'Save Changes' : 'Add Correspondent'}
+  </button>
+</div>
+
             </form>
           </div>
         </div>

@@ -216,7 +216,7 @@ const handleSubmit = async (e) => {
         <h2 className="text-3xl font-semibold text-black">View Coverage</h2>
       </div>
 
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
 
       {loading ? (
         <p>Loading...</p>
@@ -284,10 +284,11 @@ const handleSubmit = async (e) => {
 
         <button
           type="submit"
-          className="px-8 py-2 text-sm font-medium text-white bg-blue-700 rounded-md hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-300"
+          className="px-6 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg shadow-md transition duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-1"
         >
           Filter
         </button>
+
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       </form>
       </div>
@@ -309,8 +310,9 @@ const handleSubmit = async (e) => {
 
           <button
             onClick={handlePrint}
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-md hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-300"
+            className="px-4 py-2 text-sm font-medium text-green-700 border-2 border-green-500 rounded-lg bg-white transition duration-300 hover:bg-green-900 hover:text-white focus:outline-none focus:ring focus:ring-green-300"
           >
+          
             Print
           </button>
         </div>
@@ -335,22 +337,22 @@ const handleSubmit = async (e) => {
         <table className="table-auto w-full border-collapse border border-gray-200">
           <thead className="border-gray-100 border-2">
             <tr className="bg-gray-200">
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">#</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Coverage Number</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Correspondent Name</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Correspondent Id</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Receive Date</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Telecast Date</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Category</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Status Type</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Channel</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-md border-gray-100 border-2">Action</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-300 font-medium text-md border-gray-500 border">#</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Coverage Number</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Correspondent Name</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Correspondent Id</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Receive Date</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Telecast Date</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Category</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Status Type</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Channel</th>
+              <th className="text-left px-3 py-2 bg-gray-900 text-gray-200 font-medium text-md border-gray-500 border">Action</th>
             </tr>
           </thead>
           <tbody>
             {currentCoverages.length > 0 ? (
               currentCoverages.map((coverage, index) => (
-                <tr key={coverage._id}>
+                <tr key={coverage._id} className=" even:bg-gray-200 odd:bg-white hover:bg-gray-300">
                   <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{(currentPage - 1) * itemsPerPage + index + 1}</td>
                   <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.coverageNumber}</td>
                   <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.correspondent?.name || 'N/A'}</td>
@@ -430,13 +432,13 @@ const handleSubmit = async (e) => {
             <div className="flex justify-end space-x-2">
               <button
                 onClick={handlePasswordSubmit}
-                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+                className="border-2 border-red-500 text-red-500 bg-white px-4 py-2 rounded-md hover:bg-red-600 hover:text-white"
               >
-                Submit
+                OK
               </button>
               <button
                 onClick={handleCancelPasswordPrompt}
-                className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600"
+                className="border-2 border-gray-500 bg-white text-gray-500 px-4 py-2 rounded-md hover:bg-gray-600 hover:text-white"
               >
                 Cancel
               </button>

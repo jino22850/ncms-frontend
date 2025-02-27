@@ -179,7 +179,7 @@ const handleSelect = (correspondent) => {
         <h2 className="text-3xl font-semibold text-black">Coverage Report</h2>
       </div>
 
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
 
       
 <div className="flex items-center justify-between p-4 bg-gray-100 border border-gray-200 rounded-md shadow-sm">
@@ -292,23 +292,23 @@ const handleSelect = (correspondent) => {
       <div id="coverage-report">
         <table className="table-auto w-full border-collapse border border-gray-200">
           <thead className="border-gray-100 border-2">
-            <tr className="bg-gray-200">
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">#</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Coverage Number</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent Name</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Correspondent Id</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Receive Date</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Telecast Date</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Category</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Status Type</th>
-              <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Channel</th>
+            <tr className="bg-gray-900">
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">#</th>
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Coverage Number</th>
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Correspondent Name</th>
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Correspondent Id</th>
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Receive Date</th>
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Telecast Date</th>
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Category</th>
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Status Type</th>
+              <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Channel</th>
        
             </tr>
           </thead>
           <tbody>
             {currentCoverages.length > 0 ? (
               currentCoverages.map((coverage, index) => (
-                <tr key={coverage._id}>
+                <tr key={coverage._id} className=" even:bg-gray-200 odd:bg-white hover:bg-gray-300">
                   <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{(currentPage - 1) * itemsPerPage + index + 1}</td>
                   <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.coverageNumber}</td>
                   <td className="px-3 py-1 text-gray-800 text-sm border-gray-100 border-2">{coverage.correspondent?.name || 'N/A'}</td>

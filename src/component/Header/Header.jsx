@@ -23,19 +23,19 @@ const Header = ({ toggleSidebar }) => {
   }
 
   return (
-    <div className="flex items-center justify-between bg-white shadow px-6 h-16 fixed top-0 left-0 right-0 z-10 w-full">
+    <div className="flex items-center justify-between bg-gray-900 shadow px-6 h-16 fixed top-0 left-0 right-0 z-10 w-full">
       {/* Logo */}
       <div className="flex items-center gap-2">
         <img src={Logo} alt="SLRC Logo" className="w-14 h-auto" />
-        <h1 className="font-bold text-lg">SLRC</h1>
+        <h1 className="font-bold text-lg text-gray-100">SLRC</h1>
 
-        <button onClick={toggleSidebar} className="ml-4">
+        <button onClick={toggleSidebar} className="ml-4 text-gray-100">
           <MdOutlineMenu size={24} />
         </button>
       </div>
 
       {/* Title */}
-      <h1 className="text-lg font-bold text-gray-700">News Correspondent Management System</h1>
+      <h1 className="text-lg font-bold text-gray-100">News Correspondent Management System</h1>
 
       {/* User Dropdown */}
       <div className="relative">
@@ -44,9 +44,9 @@ const Header = ({ toggleSidebar }) => {
           className="flex items-center gap-4 cursor-pointer"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)} 
         >
-          <FaUserCircle size={24} className="text-gray-600" />
-          <span className="text-gray-600">
-            Hello, {loggedInUser ? loggedInUser.username : "Admin"} 
+          <FaUserCircle size={24} className="text-gray-100" />
+          <span className="text-gray-100">
+            Hello, {loggedInUser ? loggedInUser.admin : "Admin"} 
           </span>
         </div>
 

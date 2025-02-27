@@ -82,7 +82,7 @@ const CorrespondentReport = () => {
         </h2>
       </div>
 
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
       {error && <p style={{ color: "red" }}>{error}</p>}
 
      
@@ -111,14 +111,14 @@ const CorrespondentReport = () => {
         <p></p>
         <button
           onClick={handlePrint}
-          className="px-5 py-2 text-sm font-medium text-white bg-green-700 rounded-md hover:bg-green-900 focus:outline-none focus:ring focus:ring-blue-300 "
+          className="px-5 py-2 text-sm font-medium text-green-700 border-2 border-green-700 rounded-md hover:bg-green-900 hover:text-white focus:outline-none focus:ring focus:ring-blue-300 "
         >
           Download
         </button>
         <button
           onClick={handlePrint}
           style={{ margin: "10px 4" }}
-          className="px-5 py-2 text-sm font-medium text-white bg-red-700 rounded-md hover:bg-red-900 focus:outline-none focus:ring focus:ring-blue-300 "
+          className="px-5 py-2 text-sm font-medium text-red-700 border-2 border-red-700 rounded-md hover:bg-red-900 hover:text-white focus:outline-none focus:ring focus:ring-blue-300 "
         >
           Print Report
         </button>
@@ -129,26 +129,26 @@ const CorrespondentReport = () => {
         <table className="table-auto w-full border-collapse border border-gray-200">
           <thead>
             <tr>
-            <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">#</th>
-              <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+            <th className="px-6 py-3 bg-gray-900 text-left text-sm font-medium text-gray-300 uppercase tracking-wider border-2 border-white">#</th>
+              <th className="px-6 py-3 bg-gray-900 text-left text-sm font-medium text-gray-300 uppercase tracking-wider border-2 border-white">
                 ID
               </th>
-              <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+              <th className="px-6 py-3 bg-gray-900 text-left text-sm font-medium text-gray-300 uppercase tracking-wider border border-white">
                 Name
               </th>
-              <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+              <th className="px-6 py-3 bg-gray-900 text-left text-sm font-medium text-gray-300 uppercase tracking-wider border border-white">
                 District
               </th>
-              <th className="px-6 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+              <th className="px-6 py-3 bg-gray-900 text-left text-sm font-medium text-gray-300 uppercase tracking-wider border border-white">
                 NIC
               </th>
-              <th className="px-6 py-2 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-ellipsis border-2 border-white">
+              <th className="px-6 py-3 bg-gray-900 text-left text-sm font-medium text-gray-300 uppercase tracking-wider text-ellipsis border border-white">
                 Address
               </th>
-              <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+              <th className="px-6 py-3 bg-gray-900 text-left text-sm font-medium text-gray-300 uppercase tracking-wider border border-white">
                 Email
               </th>
-              <th className="px-6 py-6 bg-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-2 border-white">
+              <th className="px-6 py-3 bg-gray-900 text-left text-sm font-medium text-gray-300 uppercase tracking-wider border border-white">
                 Phone
               </th>
             </tr>
@@ -156,7 +156,7 @@ const CorrespondentReport = () => {
           <tbody>
   {Array.isArray(currentCorrespondents) && currentCorrespondents.length > 0 ? (
     currentCorrespondents.map((correspondent,index) => (
-      <tr key={correspondent._id}>
+      <tr key={correspondent._id} className=" even:bg-gray-200 odd:bg-white hover:bg-gray-300">
         <td className="px-4 py-2 text-gray-800 text-sm border-white border-2">
         {(currentPage - 1) * itemsPerPage + index + 1}
       </td>

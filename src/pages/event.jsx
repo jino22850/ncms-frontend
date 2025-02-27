@@ -139,7 +139,7 @@ const Event = () => {
       </div>
 
       {/* section 02 */}
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
       <div className="grid grid-cols-[1fr_6fr] gap-6">
         <form className="space-y-4" onSubmit={handleSubmit}>
 
@@ -212,7 +212,7 @@ const Event = () => {
 
           <button
             type="submit"
-            className="w-full bg-red-900 text-white py-2 rounded-md hover:bg-red-700 transition-colors"
+            className="w-full border-2 border-red-900 text-red-900 py-2 rounded-md hover:bg-red-900 hover:text-white transition-colors"
           >
             {editingId ? 'Update Event' : 'Add Event'}
           </button>
@@ -239,13 +239,13 @@ const Event = () => {
 
             {/* Buttons Section */}
   <div className="flex space-x-2">
-    <button className="px-4 py-2 text-sm font-medium text-white bg-green-700 rounded-md hover:bg-green-900 focus:outline-none focus:ring focus:ring-green-300">
+    {/* <button className="px-4 py-2 text-sm font-medium text-white bg-green-700 rounded-md hover:bg-green-900 focus:outline-none focus:ring focus:ring-green-300">
       Excel
     </button>
     <button className="px-5 py-2 text-sm font-medium text-white bg-red-700 rounded-md hover:bg-red-900 focus:outline-none focus:ring focus:ring-blue-300">
       Pdf
-    </button>
-    <button className="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-md hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-300">
+    </button> */}
+    <button className="px-4 py-2 text-sm font-medium text-green-700 border-2 border-green-700 rounded-md hover:bg-green-900 hover:text-white focus:outline-none focus:ring focus:ring-green-300">
       Print
     </button>
   </div>
@@ -259,31 +259,31 @@ const Event = () => {
           </div>
           <table className="w-full border-collapse border border-gray-200 mt-4">
             <thead>
-              <tr className="bg-gray-200">
-                <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">Event Name</th>
-                <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">Sub Category</th>
-                <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">Date</th>
-                <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">Description</th>
-                <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">Actions</th>
+              <tr className="bg-gray-900">
+                <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">Event Name</th>
+                <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">Sub Category</th>
+                <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">Date</th>
+                <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">Description</th>
+                <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">Actions</th>
               </tr>
             </thead>
             <tbody>
               {currentEvents.map((event) => (
-                <tr key={event._id} className="hover:bg-gray-50">
-                  <td className="p-3 text-gray-800 text-xs border-gray-100 border-2">{event.eventName}</td>
-                  <td className="p-3 text-gray-800 text-xs border-gray-100 border-2">{event.subCategory?.subCategoryName || ''}</td>
-                  <td className="p-3 text-gray-800 text-xs border-gray-100 border-2">{event.date}</td>
-                  <td className="p-3 text-gray-800 text-xs border-gray-100 border-2">{event.description}</td>
-                  <td className="p-3 flex space-x-2 border-gray-100 border-2">
+                <tr key={event._id} className="even:bg-gray-200 odd:bg-white hover:bg-gray-300">
+                  <td className="p-2 text-gray-800 text-sm border-gray-100 border">{event.eventName}</td>
+                  <td className="p-2 text-gray-800 text-sm border-gray-100 border">{event.subCategory?.subCategoryName || ''}</td>
+                  <td className="p-2 text-gray-800 text-sm border-gray-100 border">{event.date}</td>
+                  <td className="p-2 text-gray-800 text-sm border-gray-100 border">{event.description}</td>
+                  <td className="p-2 flex space-x-2 border-gray-100 border">
                     <button
                       onClick={() => handleEdit(event)}
-                      className="bg-blue-500 text-white px-2 py-1 rounded-md"
+                      className="border-2 border-blue-500 text-blue-500 bg-white hover:bg-blue-500 hover:text-white px-2 py-1 rounded-md"
                     >
                       <MdModeEdit />
                     </button>
                     <button
                       onClick={() => handleDelete(event._id)}
-                      className="bg-red-500 text-white px-2 py-1 rounded-md"
+                      className="border-2 border-red-500 text-red-500 bg-white hover:text-white hover:bg-red-500 px-2 py-1 rounded-md"
                     >
                       <MdDelete />
                     </button>
@@ -298,17 +298,17 @@ const Event = () => {
             <button
               onClick={handlePreviousPage}
               disabled={currentPage === 1}
-              className="px-1 py-1 bg-gray-300 text-gray-700 rounded-md"
+              className="px-5 py-1 bg-gray-300 text-gray-700 rounded-md"
             >
               Previous
             </button>
             <span>
-               {currentPage}{totalPages}
+               {currentPage} of {totalPages}
             </span>
             <button
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
-              className="px-1 py-1 bg-gray-300 text-gray-700 rounded-md"
+              className="px-5 py-1 bg-gray-300 text-gray-700 rounded-md"
             >
               Next
             </button>

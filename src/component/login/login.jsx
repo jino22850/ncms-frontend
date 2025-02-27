@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+//import { FaUserCircle } from "react-icons/fa";
 import axios from "axios";
 import { BASE_URL } from "../../api/API";
 
@@ -50,11 +51,17 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100 w-screen">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-semibold text-center mb-6">Login</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 to-gray-100 w-screen">
+    <div className="bg-white rounded-2xl shadow-lg p-8 w-96">
+      <div className="flex justify-center mb-4">
+        {/* <div className="bg-white text-gray-300 text-lg font-bold  px-36 py-2 w-full h-auto">
+          <FaUserCircle/>
+        </div> */}
+      </div>
+      {/* <h1 className="text-2xl font-semibold text-center text-gray-900">Welcome to SLRC!</h1> */}
+      <h1 className="text-center text-black mb-6 font-bold text-3xl">LOGIN</h1>
+        <form onSubmit={handleSubmit} className="mt-8">
+          <div className="mb-6">
             <label
               htmlFor="email"
               className="block text-gray-700 mb-2 text-sm"
@@ -64,7 +71,7 @@ const Login = () => {
             <input
               type="email"
               id="email"
-              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300 text-sm"
+              className="w-full p-3 border-b-2 border-gray-300 focus:outline-none focus:border-gray-500"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
@@ -81,7 +88,7 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300 text-sm"
+              className="w-full p-3 border-b-2 border-gray-300 focus:outline-none focus:border-gray-500"
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
@@ -90,7 +97,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full p-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 text-sm"
+            className="w-full bg-gradient-to-r from-gray-900 to-gray-300 text-white py-2 rounded-lg font-semibold hover:opacity-90"
             disabled={isLoading}
           >
             {isLoading ? "Logging in..." : "Login"}

@@ -127,13 +127,13 @@ try {
 };
  
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className=" bg-gradient-to-r from-gray-100 to-gray-500 min-h-screen flex flex-col">
       <div className="flex items-center space-x-4 mb-6">
         <FaUser className="text-4xl text-black" />
         <h2 className="text-3xl font-semibold text-black">Coverage and Telecast</h2>
       </div>
 
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
 
       <h2 className="text-3xl font-semibold text-black">
           {isEdit ? 'Edit Coverage' : 'Add Coverage'}
@@ -141,7 +141,7 @@ try {
 
 
       <form className="space-y-2" onSubmit={isEdit ? handleUpdate : handleSubmit}>
-        <div className="bg-[#eeeded] rounded shadow p-6 w-full">
+        <div className="bg-gradient-to-r from-gray-100 to-gray-500 rounded shadow p-6 w-full">
           <div className="grid grid-cols-3 gap-14">
             {/* Correspondent */}
             <div className="mb-1">
@@ -306,7 +306,7 @@ try {
 
             <button
               type="submit"
-              className="w-full bg-red-900 text-white py-2 rounded-md hover:bg-red-700 transition-colors text-sm"
+              className="mt-3 mb-1 px-4 py-2 text-sm font-medium text-red-900 border border-red-900 rounded-lg bg-white transition duration-300 hover:bg-red-900 hover:text-white focus:outline-none focus:ring focus:ring-red-300"
             >
              {isEdit ? 'Update Coverage' : 'Add Coverage'}
             </button>

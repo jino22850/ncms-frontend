@@ -12,12 +12,12 @@ const Sidebar = ({ isSidebarOpen }) => {
   if (!isSidebarOpen) return null;
 
   return (
-    <div className="w-60 h-screen bg-[#d0d0d0] flex flex-col items-center py-4">
+    <div className="w-60 h-screen bg-gray-600 flex flex-col items-center py-4">
       {/* Menu Items */}
       <div className="flex flex-col gap-4 text-gray-700 w-full px-4">
 
 
-      <div className="flex items-center gap-3 hover:text-black cursor-pointer sm:flex hover:text-bold lg:text-black text-sm font-semibold">
+      <div className="flex items-center gap-3 cursor-pointer sm:flex hover:text-bold lg:text-black text-sm font-semibold hover:text-white">
               <a href="/dashboard">Dashboard</a>
             </div>
             <div className="flex items-center gap-3 hover:text-black cursor-pointer sm:flex hover:text-bold lg:text-black text-sm font-semibold">

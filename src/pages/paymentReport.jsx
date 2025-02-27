@@ -107,7 +107,7 @@ const currentPayments = filteredPayments.slice(
               <h2 className="text-3xl font-semibold text-black">Payment Report</h2>
             </div>
       
-            <div className="border-b-4 border-red-900 mb-6 "></div>
+            <div className="border-b-4 border-gray-900 mb-6 "></div>
 
       
 <div className="mb-4 flex items-center space-x-20 grid-cols-3">
@@ -151,14 +151,14 @@ const currentPayments = filteredPayments.slice(
       
       <button
         onClick={handlePrint}
-        className="px-5 py-2 text-sm font-medium text-white bg-red-700 rounded-md hover:bg-red-900 focus:outline-none focus:ring focus:ring-blue-300 "
+        className="px-5 py-2 text-sm font-medium text-red-700 border-2 border-red-700 bg-white rounded-md hover:bg-red-900 hover:text-white focus:outline-none focus:ring focus:ring-red-300 "
       >
         Print
       </button>
 
       <button
         onClick={handlePrint}
-        className="px-5 py-2 text-sm font-medium text-white bg-green-700 rounded-md hover:bg-green-900 focus:outline-none focus:ring focus:ring-blue-300 "
+        className="px-5 py-2 text-sm font-medium text-green-700 border-2 border-green-700 bg-white rounded-md hover:bg-green-900 hover:text-white focus:outline-none focus:ring focus:ring-green-300 "
       >
         Download
       </button>
@@ -169,40 +169,40 @@ const currentPayments = filteredPayments.slice(
       ) : (
         <table id="payment-table" className="min-w-full border-collapse border border-gray-300 mt-4">
           <thead>
-            <tr className="bg-gray-100">
-            <th className="text-left px-8 py-3 text-gray-700 font-medium text-sm border-white border-2">#</th>
-              <th className="text-left px-8 py-3 text-gray-700 font-medium text-sm border-white border-2">Correspondent</th>
-              <th className="text-left px-8 py-3 text-gray-700 font-medium text-sm border-white border-2">Correspondent corId</th>
-              <th className="text-left px-10 py-3 text-gray-700 font-medium text-sm border-white border-2">District</th>
-              <th className="text-left px-10 py-3 text-gray-700 font-medium text-sm border-white border-2">NIC</th>
-              <th className="text-left px-10 py-3 text-gray-700 font-medium text-sm border-white border-2">Total Amount</th>
-              <th className="text-left px-10 py-3 text-gray-700 font-medium text-sm border-white border-2">Month</th>
-              <th className="text-left px-10 py-3 text-gray-700 font-medium text-sm border-white border-2">Year</th>
+            <tr className="bg-gray-900">
+            <th className="text-left px-8 py-3 text-gray-300 font-medium text-sm border-gray-100 border">#</th>
+              <th className="text-left px-8 py-3 text-gray-300 font-medium text-sm border-gray-100 border">Correspondent</th>
+              <th className="text-left px-8 py-3 text-gray-300 font-medium text-sm border-gray-100 border">Correspondent corId</th>
+              <th className="text-left px-10 py-3 text-gray-300 font-medium text-sm border-gray-100 border">District</th>
+              <th className="text-left px-10 py-3 text-gray-300 font-medium text-sm border-gray-100 border">NIC</th>
+              <th className="text-left px-10 py-3 text-gray-300 font-medium text-sm border-gray-100 border">Total Amount</th>
+              <th className="text-left px-10 py-3 text-gray-300 font-medium text-sm border-gray-100 border">Month</th>
+              <th className="text-left px-10 py-3 text-gray-300 font-medium text-sm border-gray-100 border">Year</th>
             </tr>
           </thead>
           <tbody>
             {currentPayments.map((payment,index) => (
-              <tr key={payment._id}>
-                 <td className="px-8 py-2 text-gray-800 text-xs border-gray-100 border-2">
+              <tr key={payment._id} className='even:bg-gray-200 odd:bg-white hover:bg-gray-300'>
+                 <td className="px-8 py-2 text-gray-800 text-sm border-gray-100 border">
         {(currentPage - 1) * itemsPerPage + index + 1}
       </td>
-                <td className="px-8 py-3 text-gray-800 text-xs border-gray-100 border-2">
+                <td className="px-8 py-3 text-gray-800 text-sm border-gray-100 border">
                   {payment.correspondentName}
                 </td>
-                <td className="px-8 py-3 text-gray-800 text-xs border-gray-100 border-2">
+                <td className="px-8 py-3 text-gray-800 text-sm border-gray-100 border">
                   {payment.correspondentCorId}
                 </td>
-                <td className="px-10 py-3 text-gray-800 text-xs border-gray-100 border-2">
+                <td className="px-10 py-3 text-gray-800 text-sm border-gray-100 border">
                   {payment.correspondentDistrict}
                 </td>
-                <td className="px-10 py-3 text-gray-800 text-xs border-gray-100 border-2">
+                <td className="px-10 py-3 text-gray-800 text-sm border-gray-100 border">
                   {payment.correspondentNIC}
                 </td>
-                <td className="px-10 py-3 text-gray-800 text-xs border-gray-100 border-2">
+                <td className="px-10 py-3 text-gray-800 text-sm border-gray-100 border">
                   {payment.totalAmount}
                 </td>
-                <td className="px-10 py-3 text-gray-800 text-xs border-gray-100 border-2">{payment.month}</td>
-                <td className="px-10 py-3 text-gray-800 text-xs border-gray-100 border-2">{payment.year}</td>
+                <td className="px-10 py-3 text-gray-800 text-sm border-gray-100 border">{payment.month}</td>
+                <td className="px-10 py-3 text-gray-800 text-sm border-gray-100 border">{payment.year}</td>
               </tr>
             ))}
           </tbody>

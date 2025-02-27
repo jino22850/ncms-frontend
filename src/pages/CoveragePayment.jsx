@@ -66,7 +66,7 @@ const CoveragePayment = () => {
                 <h2 className="text-3xl font-semibold text-black">Payments for Coverages</h2>
               </div>
         
-              <div className="border-b-4 border-red-900 mb-6"></div>
+              <div className="border-b-4 border-gray-900 mb-6"></div>
 
               <div className="mb-4 flex flex-col md:flex-row md:items-end gap-24">
     {/* Correspondent Search Input */}
@@ -143,21 +143,21 @@ const CoveragePayment = () => {
                 <table className="w-full bg-white shadow-md rounded mt-4">
                     <thead>
                         <tr className="bg-gray-200">
-                            <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Coverage Number</th>
-                            <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Telecast Date</th>
-                            <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Telecast Type</th>
-                            <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Channel</th>
-                            <th className="text-left p-2 bg-gray-200 text-gray-500 font-medium text-sm border-gray-100 border-2">Payment Amount</th>
+                            <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Coverage Number</th>
+                            <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Telecast Date</th>
+                            <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Telecast Type</th>
+                            <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Channel</th>
+                            <th className="text-left px-3 py-3 bg-gray-900 text-gray-300 font-medium text-sm border-gray-100 border">Payment Amount</th>
                         </tr>
                     </thead>
                     <tbody>
                         {coverages.map((coverage) => (
-                            <tr key={coverage._id} className="border-t">
-                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border-2">{coverage.coverageNumber}</td>
-                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border-2">{coverage.telecastDate?.split('T')[0]}</td>
-                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border-2">{coverage.telecastType}</td>
-                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border-2">{coverage.channel}</td>
-                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border-2">{coverage.paymentAmount}</td>
+                            <tr key={coverage._id} className="border-t even:bg-gray-200 odd:bg-white hover:bg-gray-300">
+                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border">{coverage.coverageNumber}</td>
+                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border">{coverage.telecastDate?.split('T')[0]}</td>
+                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border">{coverage.telecastType}</td>
+                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border">{coverage.channel}</td>
+                                <td className="px-3 py-2 text-gray-800 text-sm border-gray-100 border">{coverage.paymentAmount}</td>
                             </tr>
                         ))}
                     </tbody>

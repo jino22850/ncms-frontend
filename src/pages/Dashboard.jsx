@@ -34,7 +34,7 @@ const Dashboard = () => {
     fetchCoverageCount();
   }, []);
   return (
-    <div className=' bg-[#F8F9FC]'>
+    <div className='  bg-gradient-to-r from-gray-100 to-gray-500'>
 
 <div className='grid grid-cols-3 gap-[100px] mt-[25px] pb-[15px]'>
   {/* 1 */}

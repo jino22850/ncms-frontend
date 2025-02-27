@@ -46,7 +46,7 @@ const GeneratePayments = () => {
         <h2 className="text-3xl font-semibold text-black">Payments</h2>
       </div>
 
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-[#eeeded] rounded shadow p-6 w-full">
@@ -84,7 +84,7 @@ const GeneratePayments = () => {
 
             <button
               type="submit"
-              className="col-span-2 bg-red-900 text-white py-2 rounded-md hover:bg-red-700 transition-colors text-sm"
+              className="col-span-2 border-2 border-indigo-900 text-indigo-900 text-bold py-2 rounded-md hover:bg-indigo-900 hover:text-white transition-colors text-md"
               disabled={loading}
             >
               {loading ? 'Generating...' : 'Generate Payments'}
@@ -100,13 +100,13 @@ const GeneratePayments = () => {
           <h2 className="text-lg font-semibold">Generation Results</h2>
           <div className="overflow-x-auto mt-4">
             <table className="min-w-full table-auto border-collapse border border-gray-300">
-              <thead className='bg-gray-100'>
+              <thead className='bg-gray-900'>
                 <tr>
                 
-                  <th className="p-3 text-sm font-medium text-gray-700 border-2">Correspondent Name</th>
-                  <th className="p-3 text-sm font-medium text-gray-700 border-2">Correspondent ID</th>
-                  <th className="p-3 text-sm font-medium text-gray-700 border-2">District</th>
-                  <th className="p-3 text-sm font-medium text-gray-700 border-2">Total Amount</th>
+                  <th className="px-4 py-3 text-sm bg-gray-900 font-medium text-gray-300 border-gray-100 border">Correspondent Name</th>
+                  <th className="px-4 py-3 text-sm bg-gray-900 font-medium text-gray-300 border-gray-100 border">Correspondent ID</th>
+                  <th className="px-4 py-3 text-sm bg-gray-900 font-medium text-gray-300 border-gray-100 border">District</th>
+                  <th className="px-4 py-3 text-sm bg-gray-900 font-medium text-gray-300 border-gray-100 border">Total Amount</th>
                 
                 </tr>
               </thead>
@@ -114,11 +114,11 @@ const GeneratePayments = () => {
   {results.map((result) => {
     console.log('Result item:', result); 
     return (
-      <tr key={result.paymentId}>
-        <td className="p-4 text-sm border-2">{result.correspondentName}</td>
-        <td className="p-4 text-sm border-2">{result.CorId}</td>
-        <td className="p-4 text-sm border-2">{result.district}</td>
-        <td className="p-4 text-sm border-2">{result.totalAmount}</td>
+      <tr key={result.paymentId} className=" even:bg-gray-200 odd:bg-white hover:bg-gray-300">
+        <td className="px-4 py-2 text-sm border-gray-100 border">{result.correspondentName}</td>
+        <td className="px-4 py-2 text-sm border-gray-100 border">{result.CorId}</td>
+        <td className="px-4 py-2 text-sm border-gray-100 border">{result.district}</td>
+        <td className="px-4 py-2 text-sm border-gray-100 border">{result.totalAmount}</td>
        
       </tr>
     );

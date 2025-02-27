@@ -22,7 +22,7 @@ const Layout = () => {
 
         {/* Main Content Area */}
         <div className="flex-1 ml-56 p-4 pt-2 ">
-          <div className="flex-1 w-full pl-4 min-h-[calc(100vh-4rem)] p-4 bg-gray-100">
+          <div className="flex-1 w-full pl-4 min-h-[calc(100vh-4rem)] p-4  bg-gradient-to-r from-gray-50 to-gray-500">
             <Outlet />
           </div>
         </div>

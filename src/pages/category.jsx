@@ -112,7 +112,7 @@ const filteredCategories = categories.filter(
         <h2 className="text-3xl font-semibold text-black">Category</h2>
       </div>
 
-      <div className="border-b-4 border-red-900 mb-6"></div>
+      <div className="border-b-4 border-gray-900 mb-6"></div>
 
       <div className="grid grid-cols-[1fr_5fr] gap-6">
         
@@ -142,7 +142,7 @@ const filteredCategories = categories.filter(
 
           <button
             type="submit"
-            className="w-full bg-red-900 text-white py-2 rounded-md hover:bg-red-700 transition-colors text-sm"
+            className="w-full border-2 border-red-900 text-red-900 bg-white py-2 rounded-md hover:bg-red-900 hover:text-white transition-colors text-sm"
           >
             {isEditing ? "Update Category" : "Add Category"}
           </button>
@@ -170,13 +170,13 @@ const filteredCategories = categories.filter(
 
  
   <div className="flex space-x-2">
-    <button className="px-4 py-2 text-sm font-medium text-white bg-green-700 rounded-md hover:bg-green-900 focus:outline-none focus:ring focus:ring-green-300">
+    {/* <button className="px-4 py-2 text-sm font-medium text-white bg-green-700 rounded-md hover:bg-green-900 focus:outline-none focus:ring focus:ring-green-300">
       Excel
     </button>
     <button className="px-5 py-2 text-sm font-medium text-white bg-red-700 rounded-md hover:bg-red-900 focus:outline-none focus:ring focus:ring-blue-300">
       Pdf
-    </button>
-    <button className="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-md hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-300">
+    </button> */}
+    <button className="px-4 py-2 text-sm font-medium text-green-900 border-2 border-green-700 rounded-md hover:bg-green-900 hover:text-white focus:outline-none focus:ring focus:ring-green-300">
       Print
     </button>
   </div>
@@ -188,7 +188,7 @@ const filteredCategories = categories.filter(
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-72 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-sm bg-gray-100"
+            className="w-72 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-black text-sm bg-gray-100"
           />
         </div>
         </div>
@@ -196,29 +196,29 @@ const filteredCategories = categories.filter(
 
           <table className="w-full border-collapse border border-gray-200 divide-y divide-gray-200">
             <thead className="border-gray-100 border-2">
-              <tr className="bg-gray-200">
-              <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">#</th>
-                <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">Category Name</th>
-                <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">Description</th>
-                <th className="text-left p-3 text-gray-700 font-medium text-sm border-gray-100 border-2">Action</th>
+              <tr className="bg-gray-900">
+              <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">#</th>
+                <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">Category Name</th>
+                <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">Description</th>
+                <th className="text-left p-3 text-gray-300 font-medium text-sm border-gray-100 border">Action</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {currentCategories.map((category) => (
-                <tr key={category._id} className="hover:bg-gray-50">
-                   <td className="p-3 text-gray-800 text-xs border-gray-100 border-2"></td>
-                  <td className="p-3 text-gray-800 text-xs border-gray-100 border-2">{category.name}</td>
-                  <td className="p-3 text-gray-800 text-xs border-gray-100 border-2">{category.description}</td>
-                  <td className="p-3 flex space-x-2 border-gray-100 border-2">
+                <tr key={category._id} className=" even:bg-gray-200 odd:bg-white hover:bg-gray-300">
+                   <td className="p-2 text-gray-800 text-xs border-gray-100 border-2"></td>
+                  <td className="p-2 text-gray-800 text-xs border-gray-100 border-2">{category.name}</td>
+                  <td className="p-2 text-gray-800 text-xs border-gray-100 border-2">{category.description}</td>
+                  <td className="p-2 flex space-x-2 border-gray-100 border-2">
                     <button
                       onClick={() => handleEdit(category)}
-                      className="bg-blue-500 text-white py-1 px-1 text-sm rounded-md hover:bg-blue-400 transition-colors"
+                      className="border-2 border-blue-500 text-blue-500 py-1 px-1 text-sm rounded-md hover:bg-blue-500 hover:text-white transition-colors"
                     >
                       <MdModeEdit size={18} />
                     </button>
                     <button
                       onClick={() => handleDelete(category._id)}
-                      className="bg-red-500 text-white py-1 px-1 text-sm rounded-md hover:bg-red-400 transition-colors"
+                      className="border-2 border-red-500 text-red-500 py-1 px-1 text-sm rounded-md hover:bg-red-500 hover:text-white transition-colors"
                     >
                       <MdDelete size={18} />
                     </button>
@@ -245,12 +245,12 @@ const filteredCategories = categories.filter(
               Previous
             </button>
             <span>
-              <button className="bg-blue-500 px-4 py-2 border-white border-2">
+              <button className="bg-gray-500 px-4 py-2 border-white border-2">
                {currentPage} 
                </button>
             </span>
             <span>
-              <button className="bg-blue-500 px-4 py-2 border-white border-2">
+              <button className="bg-gray-100 px-4 py-2 border-white border-2">
                {totalPages}
                </button>
             </span>
