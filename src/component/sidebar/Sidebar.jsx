@@ -145,9 +145,9 @@ const Sidebar = ({ isSidebarOpen }) => {
         {isDashboardOpen && (
           <>
             
-            <div className="flex items-center gap-3 hover:text-black sm:flex hover:text-bold lg:text-black cursor-pointer text-sm">
+            {/* <div className="flex items-center gap-3 hover:text-black sm:flex hover:text-bold lg:text-black cursor-pointer text-sm">
               <a href="/signup">User</a>
-            </div>
+            </div> */}
             
            
           </>
