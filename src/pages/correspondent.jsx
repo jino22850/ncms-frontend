@@ -73,6 +73,7 @@ const Correspondent = () => {
         setFormData({ ...formData, CorId: newCorrespondent.CorId });
       }
 
+
      
       const generatedCode = response.data.CorId; 
       setFormData({
@@ -93,7 +94,7 @@ const Correspondent = () => {
       setEditing(false);
     } catch (error) {
       console.error('Error submitting data: ', error);
-      alert('Failed to submit data');
+      // alert('Failed to submit data');
     }
   };
 
