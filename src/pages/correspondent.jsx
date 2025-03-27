@@ -5,7 +5,7 @@ import { MdDelete } from 'react-icons/md';
 import { getAllCorrespondents, addCorrespondent, updateCorrespondent, deleteCorrespondent } from '../api/correspondentAPI'; 
 
 
-const Correspondent = () => {
+const Correspondent = ({ onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
     initials: '',
@@ -67,11 +67,14 @@ const Correspondent = () => {
       if (editing) {
         await updateCorrespondent(formData.CorId, formData);
         alert('Correspondent updated successfully');
+        onClose(); 
+      window.location.reload();
       } else {
         const newCorrespondent = await addCorrespondent(formData);
         alert('Correspondent added successfully');
         setFormData({ ...formData, CorId: newCorrespondent.CorId });
-      }
+      }onClose(); 
+      window.location.reload();
 
 
      
@@ -263,7 +266,7 @@ const Correspondent = () => {
      
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-xl w-1/2 mt-10 ">
+          <div className="bg-gray-200 p-8 rounded-lg shadow-xl w-1/2 mt-10 ">
             <h2 className="text-xl font-semibold mb-6">{editing ? 'Edit Correspondent' : 'Add New Correspondent'}</h2>
 
             <div className="border-b-4 border-red-900 mb-6"></div>
@@ -336,18 +339,7 @@ const Correspondent = () => {
             </div>
 
 
-            <div>
-              <label className="block text-sm font-medium">Correspondent Number :</label>
-              <input
-                type="text"
-                name="CorId"
-                value={formData.CorId}
-                onChange={handleChange}
-                required
-                className="w-full h-10 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-sm"
-                disabled 
-              />
-            </div>
+            
             
 
             <div>
@@ -394,6 +386,19 @@ const Correspondent = () => {
                 onChange={handleChange}
                 required
                 className="w-full h-10 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-sm"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium">Correspondent Number :</label>
+              <input
+                type="text"
+                name="CorId"
+                value={formData.CorId}
+                onChange={handleChange}
+                required
+                className="w-full h-10 px-4 py-2 bg-gray-200 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-sm"
+                disabled 
               />
             </div>
             

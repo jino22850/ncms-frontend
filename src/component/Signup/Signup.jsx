@@ -8,6 +8,7 @@ const Signup = () => {
     name: "",
     email: "",
     password: "",
+    role: "",
   });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -47,6 +48,7 @@ const Signup = () => {
           username: formData.name,
           email: formData.email,
           password: formData.password,
+          role: formData.role,
         });
 
         if (response.status === 200) {
@@ -59,6 +61,7 @@ const Signup = () => {
           username: formData.name,
           email: formData.email,
           password: formData.password,
+          role: formData.role,
         });
 
         if (response.status === 201) {
@@ -72,6 +75,7 @@ const Signup = () => {
         name: "",
         email: "",
         password: "",
+        role: "",
       });
     } catch (error) {
       setError(error.response?.data?.message || "An error occurred.");
@@ -85,6 +89,7 @@ const Signup = () => {
       name: admin.username,
       email: admin.email,
       password: "",
+      role: admin.role,
     });
     setEditingAdmin(admin); 
   };
@@ -146,6 +151,22 @@ const Signup = () => {
                 required
               />
             </div>
+
+            <div className="mb-4">
+              <label htmlFor="role" className="block text-gray-900 mb-2 text-sm font-semibold">
+                Role
+              </label>
+              <input
+                type="text"
+                id="role"
+                value={formData.role}
+                onChange={handleChange}
+                className="w-72 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500 text-sm bg-gray-100"
+                placeholder="Enter role"
+                required
+              />
+            </div>
+
             <div className="mb-4">
               <label htmlFor="password" className="block text-gray-900 mb-2 text-sm font-semibold">
                 Password
@@ -179,6 +200,7 @@ const Signup = () => {
                 <th className="px-4 py-2 border">#</th>
                 <th className="px-4 py-2 border">Name</th>
                 <th className="px-4 py-2 border">Email</th>
+                <th className="px-4 py-2 border">Role</th>
                 <th className="px-4 py-2 border">Actions</th>
               </tr>
             </thead>
@@ -189,6 +211,7 @@ const Signup = () => {
                     <td className="px-4 py-2 text-gray-900 border">{index + 1}</td>
                     <td className="px-4 py-2 text-gray-900 border">{admin.username}</td>
                     <td className="px-4 py-2 text-gray-900 border">{admin.email}</td>
+                    <td className="px-4 py-2 text-gray-900 border">{admin.role}</td>
                     <td className="px-4 py-2 text-gray-900 border space-x-1">
                       <button
                         className="p-1 text-blue-500 border-2 border-blue-500 rounded-md hover:bg-blue-500 hover:text-white text-sm"

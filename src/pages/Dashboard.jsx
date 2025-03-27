@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { FaRegCalendarMinus, FaUsers } from "react-icons/fa";
 import { getCorrespondentCount, getCoveragesCurrentMonth } from '../api/correspondentAPI';
+//import { AuthContext } from '../component/context/authContext';
 
 const Dashboard = () => {
 
     const [correspondentCount, setCorrespondentCount] = useState(0);
     const [coverageCount, setCoverageCount] = useState(0);
+   // const {user} = useContext(AuthContext)
 
   
   useEffect(() => {

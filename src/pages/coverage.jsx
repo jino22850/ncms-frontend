@@ -135,9 +135,9 @@ try {
 
       <div className="border-b-4 border-gray-900 mb-6"></div>
 
-      <h2 className="text-3xl font-semibold text-black">
+      {/* <h2 className="text-3xl font-semibold text-black">
           {isEdit ? 'Edit Coverage' : 'Add Coverage'}
-        </h2>
+        </h2> */}
 
 
       <form className="space-y-2" onSubmit={isEdit ? handleUpdate : handleSubmit}>
@@ -162,17 +162,7 @@ try {
               </select>
             </div>
 
-            {/* Coverage Number */}
-            <div className="mb-4">
-              <label className="text-black font-medium text-sm">Coverage Number</label>
-              <input
-                type="text"
-                name="coverageNumber"
-                value={formData.coverageNumber || ''}
-                className="w-full px-2 py-2 border rounded outline-none text-gray-700 text-sm"
-                readOnly
-              />
-            </div>
+            
 
             {/* Received Date */}
             <div className="mb-4">
@@ -302,6 +292,18 @@ try {
                 <option value="Without Voice">Without Voice</option>
                 <option value="Not Telecast">Not Telecast</option>
               </select>
+            </div>
+
+            {/* Coverage Number */}
+            <div className="mb-4">
+              <label className="text-black font-medium text-sm">Coverage Number</label>
+              <input
+                type="text"
+                name="coverageNumber"
+                value={formData.coverageNumber || ''}
+                className="w-full px-2 py-2 bg-gradient-to-r from-gray-100 to-gray-300 border rounded outline-none text-gray-700 text-sm"
+                readOnly
+              />
             </div>
 
             <button
