@@ -4,6 +4,7 @@ import Logo from "../../Assests/rupavahini.jpg";
 import { MdOutlineMenu } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext"; 
+import { Link } from "react-router-dom";
 
 const Header = ({ toggleSidebar }) => {
   const { user, logout } = useAuth();
@@ -75,15 +76,16 @@ const Header = ({ toggleSidebar }) => {
           >
             <ul>
               <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm border border-2 border-gray-300"
+                className="px-4 py-2 hover:bg-gray-300 cursor-pointer text-sm border-2 border-gray-300"
                 onClick={handleLogout}
                 role="menuitem"
               >
                 Logout
               </li>
-              <li
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm border border-2 border-gray-300">
-                About</li>
+              <li className="px-4 py-2 hover:bg-gray-300 cursor-pointer text-sm border-2 border-gray-300">
+                <Link to="/about">About</Link>
+              </li>
+
             </ul>
           </div>
         )}

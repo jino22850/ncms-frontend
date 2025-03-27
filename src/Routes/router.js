@@ -19,12 +19,21 @@ import Summery from '../pages/summery';
 import ProtectedRoute from '../component/ProtectedRoute';
 import DistrictCoverage from '../pages/districcoverageReport'
 import CoveragePayment from '../pages/CoveragePayment';
+import About from '../pages/About';
 
 function Router() {
   return (
     
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route
+          path="/about"
+          element={
+            <ProtectedRoute>
+              <About />
+            </ProtectedRoute>
+          }
+        />
 
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/login" />} />
@@ -170,6 +179,8 @@ function Router() {
           }
         />
       </Route>
+
+      
     </Routes>
     
   );
