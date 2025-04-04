@@ -245,22 +245,40 @@ const Correspondent = ({ onClose }) => {
         </table>
 
         {/* Pagination */}
-        <div className="flex justify-between mt-4">
-          <button
-            onClick={handlePrevious}
-            className="px-4 py-2 bg-gray-200 text-sm text-gray-700 rounded-md"
-            disabled={currentPage === 1}
-          >
-            Previous
-          </button>
-          <button
-            onClick={handleNext}
-            className="px-4 py-2 bg-gray-200 text-sm text-gray-700 rounded-md"
-            disabled={currentPage === Math.ceil(filteredResults.length / resultsPerPage)}
-          >
-            Next
-          </button>
-        </div>
+              <div className="flex items-center justify-center space-x-2 mt-4">
+        {/* Previous Button */}
+        <button
+          onClick={handlePrevious}
+          disabled={currentPage === 1}
+          className="px-3 py-1 border border-gray-300 rounded-md bg-white 
+                    text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+        >
+          «
+        </button>
+
+        {/* Current Page */}
+        <span className="px-3 py-1 border border-gray-300 rounded-md 
+                        bg-blue-600 text-white font-bold">
+          {currentPage}
+        </span>
+
+        {/* Total Pages Display */}
+        <span className="px-3 py-1 border border-gray-300 rounded-md 
+                        bg-gray-100 text-gray-700">
+          {Math.ceil(filteredResults.length / resultsPerPage)}
+        </span>
+
+        {/* Next Button */}
+        <button
+          onClick={handleNext}
+          disabled={currentPage === Math.ceil(filteredResults.length / resultsPerPage)}
+          className="px-3 py-1 border border-gray-300 rounded-md bg-white 
+                    text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+        >
+          »
+        </button>
+      </div>
+
       </div>
 
      

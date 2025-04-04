@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { getAllCoverages,getAllCorrespondents,fetchFilteredCoverages } from '../api/correspondentAPI';
+import { getAllCoveragesRepo,getAllCorrespondents,fetchFilteredCoverages } from '../api/correspondentAPI';
 import { MdGridView } from "react-icons/md";
 
 
@@ -21,7 +21,7 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 const fetchCoverages = async () => {
   setLoading(true);
   try {
-    const data = await getAllCoverages();
+    const data = await getAllCoveragesRepo();
     console.log("API Response:", data); 
     setCoverages(Array.isArray(data) ? data : []); 
   } catch (error) {
@@ -333,23 +333,44 @@ const handleSelect = (correspondent) => {
       </div>
 
       {/* Pagination*/}
-      <div className="flex justify-end mt-4">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-500 text-white rounded-md mr-2 disabled:opacity-50 text-sm"
-        >
-          Previous
-        </button>
-        <span className="px-4 py-2 text-xs font-semibold">{currentPage} of {totalPages}</span>
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-500 text-white rounded-md ml-2 disabled:opacity-50 text-sm"
-        >
-          Next
-        </button>
-      </div>
+       
+       <div className="flex items-center justify-center space-x-2 mt-4">
+          {/* Previous Button */}
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="px-3 py-2 border border-gray-300 rounded-md bg-white 
+                      text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+          >
+            «
+          </button>
+
+          {/* Page Numbers */}
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => handlePageChange(index + 1)}
+              className={`px-4 py-2 border border-gray-300 rounded-md 
+                          transition-all ${
+                            currentPage === index + 1
+                              ? "bg-blue-600 text-white"
+                              : "bg-white text-gray-700 hover:bg-gray-200"
+                          }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+          {/* Next Button */}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="px-3 py-2 border border-gray-300 rounded-md bg-white 
+                      text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+          >
+            »
+          </button>
+        </div>
 
     </div>
   );

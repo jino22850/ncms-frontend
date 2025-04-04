@@ -84,11 +84,19 @@ const GeneratePayments = () => {
 
             <button
               type="submit"
-              className="col-span-2 border-2 border-indigo-900 text-indigo-900 text-bold py-2 rounded-md hover:bg-indigo-900 hover:text-white transition-colors text-md"
+              className="col-span-2 border-2 border-indigo-900 text-indigo-900 font-semibold py-2 rounded-md flex justify-center items-center gap-2 hover:bg-indigo-900 hover:text-white transition-colors text-md disabled:opacity-60 disabled:cursor-not-allowed"
               disabled={loading}
             >
-              {loading ? 'Generating...' : 'Generate Payments'}
+              {loading ? (
+                <>
+                  <span className="h-4 w-4 border-2 border-indigo-900 border-t-transparent animate-spin rounded-full"></span>
+                  Generating...
+                </>
+              ) : (
+                'Generate Payments'
+              )}
             </button>
+
           </div>
         </div>
       </form>

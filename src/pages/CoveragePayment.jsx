@@ -135,7 +135,9 @@ const CoveragePayment = () => {
 
 
             {/* Loading & Error Messages */}
-            {loading && <p>Loading...</p>}
+            {loading && <div className="flex justify-center items-center h-full">
+            <div className=" mt-20 h-24 w-24 border-4 border-indigo-900 border-t-transparent rounded-full animate-spin"></div>
+            </div>}
             {error && <p className="text-red-500">{error}</p>}
 
             {/* Coverage Report Table */}

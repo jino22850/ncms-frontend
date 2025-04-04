@@ -173,6 +173,16 @@ export const getAllCoverages = async () => {
       },
     });
 };
+
+
+export const getAllCoveragesRepo = async () => {
+  const token = localStorage.getItem('authToken');
+   return axios.get(`${API_BASE_URL}/coverage/all/repo`, {
+   headers: {
+    'Authorization': `Bearer ${token}`, 
+      },
+    });
+};
  
  
 

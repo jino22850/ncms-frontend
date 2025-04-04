@@ -172,7 +172,9 @@ const handlePageChange = (page) => {
 };
 
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="flex justify-center items-center h-full">
+  <div className=" mt-20 h-24 w-24 border-4 border-indigo-900 border-t-transparent rounded-full animate-spin"></div>
+</div>
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
@@ -312,30 +314,46 @@ const handlePageChange = (page) => {
       )}
 
       {/* Pagination */}
-      <div className="flex justify-end mt-4">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-         className="px-4 py-2 bg-gray-100 text-black ml-2 disabled:opacity-50 text-sm"
-        >
-          Previous
-        </button>
-        <span>
-        <button className="bg-gray-500 px-4 py-2 border-white border">{currentPage}
-        </button>
-            </span>
-            <span>
-            <button className="bg-gray-200 px-4 py-2 border-white border"> {totalPages}
-              </button>
-            </span>
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-100 text-black disabled:opacity-50 text-sm"
-        >
-          Next
-        </button>
-      </div>
+      <div className="flex items-center justify-center space-x-2 mt-4">
+  {/* Previous Button */}
+  <button
+    onClick={() => handlePageChange(currentPage - 1)}
+    disabled={currentPage === 1}
+    className="px-3 py-2 border border-gray-300 rounded-md bg-white 
+               text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+  >
+    «
+  </button>
+
+  {/* Page Numbers */}
+  {Array.from({ length: totalPages }, (_, index) => (
+    <button
+      key={index}
+      onClick={() => handlePageChange(index + 1)}
+      className={`px-4 py-2 border border-gray-300 rounded-md 
+                  transition-all ${
+                    currentPage === index + 1
+                      ? "bg-blue-600 text-white"
+                      : "bg-white text-gray-700 hover:bg-gray-200"
+                  }`}
+    >
+      {index + 1}
+    </button>
+  ))}
+
+  {/* Next Button */}
+  <button
+    onClick={() => handlePageChange(currentPage + 1)}
+    disabled={currentPage === totalPages}
+    className="px-3 py-2 border border-gray-300 rounded-md bg-white 
+               text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+  >
+    »
+  </button>
+</div>
+
+
+
       
       
       

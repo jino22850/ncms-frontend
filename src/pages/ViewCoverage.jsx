@@ -330,7 +330,10 @@ const handleSubmit = async (e) => {
       {/* Coverage Table */}
       <div id="coverage-report">
       {loading ? (
-    <p className="text-center text-blue-600 font-semibold my-4">Loading coverage data...</p>
+    <div className="flex justify-center items-center h-32">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
+  </div>
+  
   ) : errorMessage ? (
     <p className="text-center text-red-600 font-semibold my-4">{errorMessage}</p>
   ) : (
@@ -399,23 +402,39 @@ const handleSubmit = async (e) => {
       
 
       {/* Pagination */}
-      <div className="flex justify-between mt-4">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-500 text-white rounded-md mr-2 disabled:opacity-50 text-sm"
-        >
-          Previous
-        </button>
-        <span className="px-4 py-2 text-xs font-semibold">{currentPage} of {totalPages}</span>
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-500 text-white rounded-md ml-2 disabled:opacity-50 text-sm"
-        >
-          Next
-        </button>
-      </div>
+              <div className="flex items-center justify-center space-x-2 mt-4">
+          {/* Previous Button */}
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="px-3 py-1 border border-gray-300 rounded-md bg-white 
+                      text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+          >
+            «
+          </button>
+
+          {/* Page Indicator */}
+          <span className="px-3 py-1 border border-gray-300 rounded-md 
+                          bg-blue-600 text-white font-bold">
+            {currentPage}
+          </span>
+          
+          <span className="px-3 py-1 border border-gray-300 rounded-md 
+                        bg-gray-100 text-gray-700">
+             {totalPages}
+          </span>
+
+          {/* Next Button */}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="px-3 py-1 border border-gray-300 rounded-md bg-white 
+                      text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+          >
+           »
+          </button>
+        </div>
+
 
       {/* Password */}
       {isPasswordPromptVisible && (

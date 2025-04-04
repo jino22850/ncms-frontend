@@ -236,32 +236,44 @@ const filteredCategories = categories.filter(
           </table>
 
            {/* Pagination Section */}
-           <div className="flex justify-end mt-4">
-            <button
-              onClick={handlePreviousPage}
-              disabled={currentPage === 1}
-              className="bg-gray-200 px-4 py-2  cursor-pointer text-sm"
-            >
-              Previous
-            </button>
-            <span>
-              <button className="bg-gray-500 px-4 py-2 border-white border-2">
-               {currentPage} 
-               </button>
-            </span>
-            <span>
-              <button className="bg-gray-100 px-4 py-2 border-white border-2">
-               {totalPages}
-               </button>
-            </span>
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-              className="bg-gray-200 px-4 py-2 cursor-pointer text-sm"
-            >
-              Next
-            </button>
-          </div>
+           <div className="flex items-center justify-center space-x-2 mt-4">
+  {/* Previous Button */}
+  <button
+    onClick={handlePreviousPage}
+    disabled={currentPage === 1}
+    className="px-3 py-2 border border-gray-300 rounded-md bg-white 
+               text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+  >
+    «
+  </button>
+
+  {/* Current Page */}
+  <button
+    className="px-4 py-2 border border-gray-300 rounded-md 
+               bg-blue-600 text-white"
+  >
+    {currentPage}
+  </button>
+
+  {/* Total Pages Display */}
+  <button
+    className="px-4 py-2 border border-gray-300 rounded-md 
+               bg-white text-gray-700 hover:bg-gray-200"
+  >
+    {totalPages}
+  </button>
+
+  {/* Next Button */}
+  <button
+    onClick={handleNextPage}
+    disabled={currentPage === totalPages}
+    className="px-3 py-2 border border-gray-300 rounded-md bg-white 
+               text-gray-700 hover:bg-gray-200 disabled:opacity-50"
+  >
+    »
+  </button>
+</div>
+
         </div>
         
       </div>
